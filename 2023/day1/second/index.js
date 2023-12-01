@@ -1,4 +1,5 @@
-const input = ["14gxqgqsqqbxfpxnbccjc33eight",
+const input = [
+    "14gxqgqsqqbxfpxnbccjc33eight",
     "eight2sevenkl",
     "mrjstg5onetwoeightgcczx8vgrgl",
     "9246",
