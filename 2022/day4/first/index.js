@@ -1012,15 +1012,19 @@ const testInput = [
 
 const test = input.map(
     pair => {
-        const sp = pair[0].split(',')
-        const elfA = sp[0].split('-');
-        const elfB = sp[1].split('-');
-        if (elfB[0]<= elfA[0] && elfB[1]>= elfA[1]) {
+        const sp = pair[0].split(',');
+        const rangeA = sp[0].split('-').map(Number);
+        const rangeB = sp[1].split('-').map(Number);
+
+        if ((rangeB[0] <= rangeA[0] && rangeB[1] >= rangeA[1]) ||
+            (rangeA[0] <= rangeB[0] && rangeA[1] >= rangeB[1])) {
             return true;
         }
-        return elfA[0] <= elfB[0] && elfA[1] >= elfB[1];
+        return false;
 
-    }
-).filter(value => value).length;
+    })
+    .filter(
+        value => value
+    ).length;
 
 console.log(test)
