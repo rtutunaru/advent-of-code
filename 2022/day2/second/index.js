@@ -2509,49 +2509,64 @@ const testInput = [
 
 const calculateScore = (a, b) => {
     let score = 0;
-    switch (b) {
-        case 'Y':
-            // Paper
-            score += 2;
-            switch (a) {
-                case 'A':
-                    score += 6;
-                    break;
-                case 'B':
+    switch (a) {
+        // Rock
+        case 'A':
+            switch (b) {
+                case 'X':
+                    //Scissors
                     score += 3;
-                    break;
-                case 'C':
                     score += 0;
                     break;
-            }
-            break;
-        case 'X':
-            // Rock
-            score += 1;
-            switch (a) {
-                case 'A':
+                case 'Y':
+                    // Rock
+                    score += 1;
                     score += 3;
                     break;
-                case 'B':
-                    score += 0;
-                    break;
-                case 'C':
+                case 'Z':
+                    // Paper
+                    score += 2;
                     score += 6;
                     break;
             }
             break;
-        case 'Z':
-            //Scissors
-            score += 3;
-            switch (a) {
-                case 'A':
+        // Paper
+        case 'B':
+            switch (b) {
+                case 'X':
+                    // Rock
+                    score += 1;
                     score += 0;
                     break;
-                case 'B':
+                case 'Y':
+                    // Paper:
+                    score += 2;
+                    score += 3;
+                    break;
+                case 'Z':
+                    // Scissors:
+                    score += 3;
                     score += 6;
                     break;
-                case 'C':
+            }
+            break;
+        // Scissors:
+        case 'C':
+            switch (b) {
+                case 'X':
+                    // Paper:
+                    score += 2;
+                    score += 0;
+                    break;
+                case 'Y':
+                    // Scissors:
                     score += 3;
+                    score += 3;
+                    break;
+                case 'Z':
+                    // Rock:
+                    score += 1;
+                    score += 6;
                     break;
             }
             break;
@@ -2559,7 +2574,7 @@ const calculateScore = (a, b) => {
     return score;
 }
 
-const x = testInput
+const x = input
     .map(pair => calculateScore(...pair))
     .reduce((sum, current) => sum + current , 0);
 console.log(x);
