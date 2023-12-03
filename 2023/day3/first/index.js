@@ -154,7 +154,7 @@ const testInput = [
     ".664.598.."
 ];
 
-const SYMBOL_SET = new Set(['*', '#', '$', '+', '@', '%', '=', '/', '-', '&']);
+const SYMBOL_SET = new Set(['%', '=', '/', '-', '&', '*', '#', '$', '+', '@']);
 const NEIGHBOURS = [0, -1, 0, 1, 1, -1, -1, 1, 0];
 
 // Matrix size:
