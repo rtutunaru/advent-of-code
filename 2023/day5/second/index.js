@@ -254,7 +254,7 @@ const inputHumidityToLocation = [
     [1623954693,4059300793,74879205],
 ]
 
-function findDestination(search, data) {
+const findDestination = (search, data) => {
     let destination = search;
 
     for (let i = 0; i < data.length; i++) {
@@ -268,7 +268,7 @@ function findDestination(search, data) {
     return destination;
 }
 
-function processSeedRange(start, length, mappings) {
+const processSeedRange = (start, length, mappings) => {
     let lowestLocation = Infinity;
 
     for (let i = start; i < start + length; i++) {
